@@ -1,0 +1,59 @@
+##Task 1
+import numpy as np
+import matplotlib.pyplot as plt 
+
+vctrX =  np.array([3,2])
+vctrY =  np.array([4,-1])
+
+x = np.arange(-3,4,0.5)
+
+scalarX, scalarY = np.meshgrid(x,x)
+
+spanRx = scalarX * vctrX[0] + scalarY * vctrY[0]
+spanRy = scalarX * vctrX[1] + scalarY * vctrY[1]
+plt.scatter(spanRx,spanRy, s=5, alpha=0.4, color = 'red')
+
+plt.xlim(-30,30)
+plt.ylim(-30,30)
+
+plt.axhline(y=0, color='k')
+plt.axvline(x=0, color='k')
+
+plt.title('Result')
+plt.grid()
+plt.show()
+
+##Task 2
+import numpy as np
+import matplotlib.pyplot as plt 
+
+vctrA = np.array([2,2])
+vctrB = np.array([2,-2])
+
+X = np.arange(-4, 4, 3)
+Y = np.arange(-5, 5, 2)
+Z = np.arange(-6, 6, 1)
+
+scalarQ, scalarW = np.meshgrid(X,X)
+scalarE, scalarR = np.meshgrid(Y,Y)
+scalarT, scalarY = np.meshgrid(Z,Z)
+
+spanRx = scalarQ * vctrA[0] + scalarW * vctrB[0]
+spanRy = scalarQ * vctrA[1] + scalarW * vctrB[1]
+spanRxx = scalarE * vctrA[0] + scalarR * vctrB[0]
+spanRyy = scalarE * vctrA[1] + scalarR * vctrB[1]
+spanRxxx = scalarT * vctrA[0] + scalarT * vctrB[0]
+spanRyyy = scalarT * vctrA[1] + scalarT * vctrB[1]
+
+plt.scatter(spanRx,spanRy, s=10, alpha=1, color = 'black')
+plt.scatter(spanRxx,spanRyy, s=5, alpha=1, color = 'red')
+plt.scatter(spanRxxx,spanRyyy, s=3, alpha=1, color = 'yellow')
+
+plt.xlim(-20,20)
+plt.ylim(-20,20)
+plt.axhline(y=0, color='k')
+plt.axvline(x=0, color='k')
+
+plt.title('Vector')
+plt.grid()
+plt.show()
